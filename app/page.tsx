@@ -45,9 +45,26 @@ export default function Home() {
           <WaitlistForm />
 
           <div className="mt-6 text-center">
-            <button className="text-gray-400 hover:text-white">
-              <Twitter className="w-5 h-5 mx-auto" />
-            </button>
+            {/* Wrap the icon in an anchor tag */}
+            <a
+              href="https://twitter.com/blank_justblank" // Your Twitter profile URL
+              target="_blank" // Opens the link in a new tab
+              rel="noopener noreferrer" // Recommended for security when using target="_blank"
+              aria-label="Follow us on Twitter" // Good for accessibility
+              className="text-gray-400 hover:text-white inline-block p-2 rounded-full transition-colors duration-200 hover:bg-gray-800" // Added padding/rounding/transition for better hover effect
+            >
+              {/* Replaced the Lucide icon with your provided SVG */}
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" // This makes the SVG inherit the text color from the parent <a> tag
+                className="w-5 h-5" // Apply the size classes directly to the SVG
+              >
+                <title>X</title>
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -118,9 +135,9 @@ export default function Home() {
             </span>
           </div>
 
-          <Button className="bg-white text-black hover:bg-gray-200 px-8 py-6 rounded-full text-lg font-medium">
+          {/* <Button className="bg-white text-black hover:bg-gray-200 px-8 py-6 rounded-full text-lg font-medium">
             Learn more <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          </Button> */}
         </div>
       </section>
     </main>
