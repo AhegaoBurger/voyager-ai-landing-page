@@ -1,103 +1,128 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import WaitlistForm from "@/components/waitlist-form";
+import { ArrowRight, Twitter } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-black text-white overflow-hidden">
+      {/* First section - Join the waitlist */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute w-full h-full object-cover"
+            poster="/placeholder.svg?height=1080&width=1920"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <source
+              src="https://framerusercontent.com/assets/aMPvRVYHFQxBoB0v2qyJln83jI.mp4"
+              type="video/mp4"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </video>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="relative z-10 max-w-md w-full mx-auto bg-black/40 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-gray-800">
+          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+            <span className="bg-blue-600 text-xs font-medium px-3 py-1 rounded-full">
+              Launch in feb 2025
+            </span>
+          </div>
+
+          <div className="text-center mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Join the waitlist
+            </h2>
+            <p className="text-gray-300">
+              Get exclusive early access to Voyager AI and stay updated on
+              launch news.
+            </p>
+          </div>
+
+          <WaitlistForm />
+
+          <div className="mt-6 text-center">
+            <button className="text-gray-400 hover:text-white">
+              <Twitter className="w-5 h-5 mx-auto" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Second section - About Voyager AI */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 md:py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/20 to-blue-950/30 pointer-events-none"></div>
+
+        <div className="max-w-4xl mx-auto text-center z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Voyager AI: Seamless, Voice-Powered Exploration
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            We&aposre building a mobile-friendly web app that acts as your
+            personal, AI-powered tour guide, accessible entirely through natural
+            conversation.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto mb-10">
+            <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+              <h3 className="text-xl font-semibold mb-3">Speak Your Request</h3>
+              <p className="text-gray-300">
+                &quotFind me a 1-hour walking tour of historic sites
+                nearby.&quot
+              </p>
+            </div>
+
+            <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+              <h3 className="text-xl font-semibold mb-3">AI Plans Instantly</h3>
+              <p className="text-gray-300">
+                Leverages your location and preferences to create a custom tour
+                plan using real-time data.
+              </p>
+            </div>
+
+            <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+              <h3 className="text-xl font-semibold mb-3">Follow Hands-Free</h3>
+              <p className="text-gray-300">
+                Get turn-by-turn audio guidance and interesting facts about
+                points of interest, all via voice.
+              </p>
+            </div>
+
+            <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+              <h3 className="text-xl font-semibold mb-3">See the Route</h3>
+              <p className="text-gray-300">
+                A clear map interface displays your route and location, updating
+                dynamically.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4 justify-center mb-8">
+            <span className="bg-blue-900/40 text-blue-200 px-4 py-2 rounded-full text-sm">
+              Hands-free
+            </span>
+            <span className="bg-purple-900/40 text-purple-200 px-4 py-2 rounded-full text-sm">
+              Personalized
+            </span>
+            <span className="bg-indigo-900/40 text-indigo-200 px-4 py-2 rounded-full text-sm">
+              Real-time
+            </span>
+            <span className="bg-violet-900/40 text-violet-200 px-4 py-2 rounded-full text-sm">
+              Spontaneous
+            </span>
+            <span className="bg-fuchsia-900/40 text-fuchsia-200 px-4 py-2 rounded-full text-sm">
+              Immersive
+            </span>
+          </div>
+
+          <Button className="bg-white text-black hover:bg-gray-200 px-8 py-6 rounded-full text-lg font-medium">
+            Learn more <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </section>
+    </main>
   );
 }
